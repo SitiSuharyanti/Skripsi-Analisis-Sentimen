@@ -1,21 +1,43 @@
-# Perbandingan Algoritma Naïve Bayes dan Support Vector Machine (SVM) Pada Analisis Sentimen Pengguna Media Sosial Twitter Terhadap PT Esteh Indonesia Makmur
+# Comparison of the Naïve Bayes Algorithm and Support Vector Machine (SVM) in the Sentiment Analysis of Twitter Social Media Users towards PT Esteh Indonesia Makmur
 
-### Latar Belakang
-Pada 25 September 2022 media social twitter diramaikan dengan kasus pengguna twitter dengan username @gandhoyy yang mendapatkan surat somasi dari PT Esteh Indonesia Makmur. PT Esteh Indonesia Makmur merupakan perusahaan food & beverages yang didirikan oleh Haidhar Hibatullah Wurjanto pada tahun 2018. Perusahaan ini menjual minuman berbahan dasar teh yang dikombinasikan dengan susu, coklat, taro, red velvet, dan varian lainnya [4].
-Gandhoyy diberi somasi oleh PT Esteh Indonesia Makmur karena tweetnya yang mengkritik salah satu minuman dari perusahaan tersebut. Dalam tweetnya, Gandhoyy mengkritik bahwa minuman chizu red velvet memiliki rasa yang terlalu manis, tidak lupa ia menambahkan kata-kata kasar pada tweetnya. Tweet tersebut mengundang banyak reaksi dari warganet, baik masyarakat biasa, public figure, 2 tenaga kesehatan, maupun kompetitor. Namun karena banyaknya reaksi dari warganet, sulit untuk mendeteksi kecenderungan sentimen dari kasus tersebut. Oleh karena itu, dibutuhkan analisis sentimen untuk mengetahui sentimen dari pengguna twitter.
+This repository contains a python project for sentiment analysis, which classifies text as positive and negative. The project is designed to be run on Google Colab, making it easy to set up and run without local installation.
 
-### Tujuan
-Penelitian ini bertujuan untuk mengetahui algoritma yang memiliki performa paling baik diantara Naïve Bayes dan Support Vector Machine dalam melakukan analisis sentimen pengguna twitter terhadap PT Esteh Indonesia Makmur.
+### Features
+- Scraping and labeling manual
+- Pre-Processing (Cleansing, Case Folding, Normalization, Tokenizing, Stopword, Stemming)
+- TF-IDF
+- Oversampling (SMOTE)
+- Modelling using Naive Bayes and Support Vector Machine
+- Model evaluation using metrics such as accuracy, precision, recall, F1-score, AUC-ROC, and AUC-PR
 
-### Metode
-Algoritma yang digunakan pada penelitian ini adalah Naïve Bayes dan Support Vector Machine.
+### Usage in Google Colab
+To run this project in Google Colab, follow these steps:
+1. Open the Google Colab notebook for this project.
+2. Ensure the necessary libraries are installed. In the first cell of the notebook, you will find installation commands for any required libraries, such as:
+   ```bash
+   !pip install demoji
+   !pip install sastrawi
+   !pip install imbalanced-learn
+   !pip install scikit-learn
+4. Upload your dataset to Colab or use the default dataset provided in the notebook.
+5. Run the notebook step by step by pressing Shift + Enter on each cell to execute the code or pressing Ctrl + F9 to run all code.
 
-### Data
-Data yang digunakan dalam penelitian ini diperoleh dari X (Twitter) menggunakan metode scraping dengan library snscrape. Data terdiri dari tweet yang mengandung kata kunci “es teh Indonesia” dan “somasi” yang diambil dalam rentang waktu 24-30 September 2022. Data yang didapat diklasifikasikan menjadi 2 kelas, yaitu positif dan negatif.
+### Dataset
+The dataset was obtained from X (Twitter) using the scraping method with the snscrape library. The data consists of tweets containing the keywords "es teh indonesia" and "somasi" collected within the timeframe of September 24-30, 2022.
 
-### Hasil
-Algoritma Support Vector Machine tanpa hyperparameter tuning memiliki performa yang lebih baik dibandingkan algoritma Naïve Bayes, dengan akurasi 90,39%, presisi 78,91%, recall 59,17%, f1- score 62,51%, AUC-ROC 0,85, dan AUC-PR 0,42.
+### Model
+- Naive Bayes Without Hyperparameter Tuning
+- Naive Bayes With Hyperparameter Tuning
+- Support Vector Machine Without Hyperparameter Tuning
+- Support Vector Machine With Hyperparameter Tuning
 
-### Library
-pandas, numpy, re, string, demoji, requests, nltk, sklearn, matplotlib, seaborn, wordcloud, sastrawi, imblearn.
+### Results
+| Model | Accuracy | Precision | Recall | F1-Score | AUC-ROC | AUC-PR
+|:--------|---------|---------| ---------| ---------| ---------| ---------|
+| NB Without Tuning  | 80,26%  | 62,80%  | 73,92%  | 64,83%  | 0,8  | 0,45  |
+| NB With Tuning  | 85,45%  | 65,37% | 70,38%  | 67,26%  | 0,77  | 0,37 |
+| SVM Without Tuning  | 90,39%  | 78,91%  | 59,17%  | 62,51%  | 0,85  | 0,42 |
+| SVM With Tuning  | 90,39%  | 82,86%  | 57,03%  | 59,68%  | 0,79  | 0,37 |
+
+Based on the table, overall the SVM algorithm without hyperparameter tuning performs better than Naive Bayes algorithm.
 
